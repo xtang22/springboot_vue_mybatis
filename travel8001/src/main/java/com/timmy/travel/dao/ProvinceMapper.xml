@@ -1,0 +1,33 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.timmy.travel.dao.ProvinceMapper">
+
+    <select id="findAll" resultType="com.timmy.travel.pojo.Province">
+        select * from t_province
+    </select>
+    <select id="findByName" parameterType="string" resultType="com.timmy.travel.pojo.Province">
+        select * from t_province where name=#{name}
+    </select>
+
+    <insert id="insertProvince" parameterType="com.timmy.travel.pojo.Province">
+        insert into t_province values(#{id},#{name},#{tags},#{placecounts})
+    </insert>
+    <update id="updateById" parameterType="com.timmy.travel.pojo.Province">
+        update t_province set name=#{name},tags=#{tags},placecounts=#{placecounts} where id=#{id}
+    </update>
+    <delete id="deleteById" parameterType="int">
+        delete from t_province where id=#{id}
+    </delete>
+
+<select id="findById" parameterType="int" resultType="com.timmy.travel.pojo.Province" >
+    select * from t_province where id=#{id}
+</select>
+
+
+
+
+
+
+</mapper>
+
